@@ -1,0 +1,14 @@
+# netlify.toml
+
+[build]
+  # 构建命令：编译我们的 Go 函数
+  # -o 指定输出文件路径和名称。Netlify 会在这个目录里寻找可执行文件。
+  command = "go build -o netlify/functions/hello/main netlify/functions/hello/main.go"
+
+  # 函数目录
+  functions = "netlify/functions/"
+
+[functions]
+  # 明确指定 Go 函数的运行时
+  # 这有助于 Netlify 优化构建过程
+  included_files = ["**/*.go", "go.mod", "go.sum"]
