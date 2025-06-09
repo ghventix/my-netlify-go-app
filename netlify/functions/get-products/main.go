@@ -52,7 +52,7 @@ func handler(ctx context.Context) (*events.APIGatewayProxyResponse, error) {
 	}
 
 	// 5. 将结果序列化为 JSON
-	responseBody, err := json.Marshal(products)
+	respBody, err := json.Marshal(products)
 	if err != nil {
 		return &events.APIGatewayProxyResponse{StatusCode: 500, Body: fmt.Sprintf("Failed to marshal response: %v", err)}, nil
 	}
@@ -61,7 +61,7 @@ func handler(ctx context.Context) (*events.APIGatewayProxyResponse, error) {
 	return &events.APIGatewayProxyResponse{
 		StatusCode: 200,
 		Headers:    map[string]string{"Content-Type": "application/json"},
-		Body:       string(responseBody),
+		Body:       string(respBody),
 	}, nil
 }
 
