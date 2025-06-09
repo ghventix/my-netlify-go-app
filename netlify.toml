@@ -3,9 +3,11 @@
 [build]
   # 构建命令：编译我们的 Go 函数
   # -o 指定输出文件路径和名称。Netlify 会在这个目录里寻找可执行文件。
-  command = "go build -o netlify/functions/hello/main netlify/functions/hello/main.go"
+  # 新的构建命令：使用 for 循环来遍历并构建 functions 目录下的所有函数
+  command = "for dir in netlify/functions/*/; do (cd $dir && go build -o main); done"
 
-  # 函数目录
+
+# 函数目录
   functions = "netlify/functions/"
 
 [functions]
