@@ -5,12 +5,11 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"os"
-	"time" // 引入 time 包
-
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
 	"github.com/jackc/pgx/v5"
+	"os"
+	"time" // 引入 time 包
 )
 
 // User 结构体保持不变
